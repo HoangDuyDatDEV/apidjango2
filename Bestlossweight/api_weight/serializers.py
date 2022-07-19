@@ -1,5 +1,9 @@
+from dataclasses import field
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from api_weight.DAO.PlanDAO import CreatePlan
+
+from api_weight.models import Plan
 
 
 
@@ -20,3 +24,12 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(validated_data['username'], validated_data['email'], validated_data['password'])
 
         return user
+#Plan
+class PlanSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model=Plan
+        fields=('__all__')
+    def createplan():
+        res = CreatePlan(User.UserID,Plan.CurrentWeight,Plan.TargetWeight,Plan.TargetDate)
+        return res

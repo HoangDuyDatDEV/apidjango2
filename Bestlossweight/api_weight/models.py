@@ -16,9 +16,8 @@ class Plan(models.Model):
     TargetWeight=models.IntegerField()
     TargetDate=models.DateTimeField()
     WeeklyRate=models.DecimalField(max_digits=10,decimal_places = 2)
-    NumberTrainingPerWeek=models.IntegerField()
     BMR=models.DecimalField(max_digits=10,decimal_places = 2)
-    UserID=models.ForeignKey('User',on_delete=models.CASCADE)      
+    UserID=models.ForeignKey(User,on_delete=models.CASCADE)      
 class Meal(models.Model):
     Type=models.CharField(max_length=50)
     Food=models.CharField(max_length=100)
@@ -27,4 +26,4 @@ class Meal(models.Model):
     CaloriesFoodServing=models.IntegerField()
     CaloriesFood=models.IntegerField()
     TotalCalories=models.IntegerField()
-    UserID=models.ForeignKey('User',on_delete=models.CASCADE)
+    UserID=models.ForeignKey(User,on_delete=models.CASCADE)
