@@ -30,6 +30,4 @@ class PlanSerializer(serializers.ModelSerializer):
     class Meta:
         model=Plan
         fields=('__all__')
-    def createplan():
-        res = CreatePlan(User.UserID,Plan.CurrentWeight,Plan.TargetWeight,Plan.TargetDate)
-        return res
+    
